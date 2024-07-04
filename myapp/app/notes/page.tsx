@@ -1,8 +1,9 @@
 async function getNotes() {
   const res = await fetch(
-    "http://127.0.0.1:8090/_/#/collections?collectionId=ilzikyxcmrjjxjf&filter=&sort=-created"
+    "http://127.0.0.1:8090/api/collections/notes/records?page&perPage=30"
   );
   const data = await res.json();
+  return data?.items as any[];
 }
 
 export default async function NotesPage() {
