@@ -7,9 +7,19 @@ async function getNotes() {
 }
 
 export default async function NotesPage() {
+  const notes = await getNotes();
   return (
     <div>
       <h1>Notes</h1>
+      <div>
+        {notes?.map((note) => {
+          return <Note key={notes.id} note={note} />;
+        })}
+      </div>
     </div>
   );
+}
+
+function Note({ note }: any) {
+  const { id, title, content, description, created } = note || {};
 }
